@@ -1,0 +1,502 @@
+[
+    {
+        "service": "user-service",
+        "error_rate": 0.03,
+        "latency_ms": 122,
+        "cpu_usage": 46.49,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-001",
+        "timestamp": "2026-01-01T08:00:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.023,
+        "latency_ms": 238,
+        "cpu_usage": 59.48,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-002",
+        "timestamp": "2026-01-01T08:01:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.041,
+        "latency_ms": 416,
+        "cpu_usage": 54.27,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-003",
+        "timestamp": "2026-01-01T08:02:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.011,
+        "latency_ms": 266,
+        "cpu_usage": 52.14,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-004",
+        "timestamp": "2026-01-01T08:03:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.132,
+        "latency_ms": 1140,
+        "cpu_usage": 84.9,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-005",
+        "timestamp": "2026-01-01T08:04:00+00:00"
+    },
+    {
+        "service": "database-service",
+        "error_rate": 0.011,
+        "latency_ms": 401,
+        "cpu_usage": 23.91,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-006",
+        "timestamp": "2026-01-01T08:05:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.001,
+        "latency_ms": 240,
+        "cpu_usage": 22.24,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-007",
+        "timestamp": "2026-01-01T08:06:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.012,
+        "latency_ms": 1387,
+        "cpu_usage": 73.47,
+        "incident_label": 0,
+        "scenario": "high_traffic",
+        "event_id": "EVT-008",
+        "timestamp": "2026-01-01T08:07:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.019,
+        "latency_ms": 473,
+        "cpu_usage": 95.11,
+        "incident_label": 1,
+        "scenario": "cpu_saturation",
+        "event_id": "EVT-009",
+        "timestamp": "2026-01-01T08:08:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.4,
+        "latency_ms": 2795,
+        "cpu_usage": 87.99,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-010",
+        "timestamp": "2026-01-01T08:09:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.584,
+        "latency_ms": 2139,
+        "cpu_usage": 99.44,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-011",
+        "timestamp": "2026-01-01T08:10:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.179,
+        "latency_ms": 1119,
+        "cpu_usage": 74.36,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-012",
+        "timestamp": "2026-01-01T08:11:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.174,
+        "latency_ms": 731,
+        "cpu_usage": 76.39,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-013",
+        "timestamp": "2026-01-01T08:12:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.035,
+        "latency_ms": 449,
+        "cpu_usage": 42.4,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-014",
+        "timestamp": "2026-01-01T08:13:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.004,
+        "latency_ms": 316,
+        "cpu_usage": 11.59,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-015",
+        "timestamp": "2026-01-01T08:14:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.019,
+        "latency_ms": 763,
+        "cpu_usage": 95.16,
+        "incident_label": 1,
+        "scenario": "cpu_saturation",
+        "event_id": "EVT-016",
+        "timestamp": "2026-01-01T08:15:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.01,
+        "latency_ms": 432,
+        "cpu_usage": 45.07,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-017",
+        "timestamp": "2026-01-01T08:16:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.019,
+        "latency_ms": 332,
+        "cpu_usage": 41.78,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-018",
+        "timestamp": "2026-01-01T08:17:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.032,
+        "latency_ms": 373,
+        "cpu_usage": 46.46,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-019",
+        "timestamp": "2026-01-01T08:18:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.527,
+        "latency_ms": 2464,
+        "cpu_usage": 91.93,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-020",
+        "timestamp": "2026-01-01T08:19:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.184,
+        "latency_ms": 1213,
+        "cpu_usage": 62.97,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-021",
+        "timestamp": "2026-01-01T08:20:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.014,
+        "latency_ms": 210,
+        "cpu_usage": 57.86,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-022",
+        "timestamp": "2026-01-01T08:21:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.019,
+        "latency_ms": 412,
+        "cpu_usage": 95.04,
+        "incident_label": 1,
+        "scenario": "cpu_saturation",
+        "event_id": "EVT-023",
+        "timestamp": "2026-01-01T08:22:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.006,
+        "latency_ms": 293,
+        "cpu_usage": 13.94,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-024",
+        "timestamp": "2026-01-01T08:23:00+00:00"
+    },
+    {
+        "service": "database-service",
+        "error_rate": 0.02,
+        "latency_ms": 1334,
+        "cpu_usage": 63.57,
+        "incident_label": 0,
+        "scenario": "high_traffic",
+        "event_id": "EVT-025",
+        "timestamp": "2026-01-01T08:24:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.137,
+        "latency_ms": 846,
+        "cpu_usage": 85.12,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-026",
+        "timestamp": "2026-01-01T08:25:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.037,
+        "latency_ms": 446,
+        "cpu_usage": 47.03,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-027",
+        "timestamp": "2026-01-01T08:26:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.013,
+        "latency_ms": 421,
+        "cpu_usage": 96.39,
+        "incident_label": 1,
+        "scenario": "cpu_saturation",
+        "event_id": "EVT-028",
+        "timestamp": "2026-01-01T08:27:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.289,
+        "latency_ms": 2490,
+        "cpu_usage": 83.16,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-029",
+        "timestamp": "2026-01-01T08:28:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.011,
+        "latency_ms": 1116,
+        "cpu_usage": 80.13,
+        "incident_label": 0,
+        "scenario": "high_traffic",
+        "event_id": "EVT-030",
+        "timestamp": "2026-01-01T08:29:00+00:00"
+    },
+    {
+        "service": "database-service",
+        "error_rate": 0.013,
+        "latency_ms": 1208,
+        "cpu_usage": 82.83,
+        "incident_label": 0,
+        "scenario": "high_traffic",
+        "event_id": "EVT-031",
+        "timestamp": "2026-01-01T08:30:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.011,
+        "latency_ms": 358,
+        "cpu_usage": 40.1,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-032",
+        "timestamp": "2026-01-01T08:31:00+00:00"
+    },
+    {
+        "service": "database-service",
+        "error_rate": 0.384,
+        "latency_ms": 2558,
+        "cpu_usage": 90.58,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-033",
+        "timestamp": "2026-01-01T08:32:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.126,
+        "latency_ms": 1097,
+        "cpu_usage": 82.64,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-034",
+        "timestamp": "2026-01-01T08:33:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.17,
+        "latency_ms": 1008,
+        "cpu_usage": 89.81,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-035",
+        "timestamp": "2026-01-01T08:34:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.044,
+        "latency_ms": 1261,
+        "cpu_usage": 65.32,
+        "incident_label": 0,
+        "scenario": "high_traffic",
+        "event_id": "EVT-036",
+        "timestamp": "2026-01-01T08:35:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.515,
+        "latency_ms": 1824,
+        "cpu_usage": 83.06,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-037",
+        "timestamp": "2026-01-01T08:36:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.128,
+        "latency_ms": 971,
+        "cpu_usage": 85.15,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-038",
+        "timestamp": "2026-01-01T08:37:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.038,
+        "latency_ms": 181,
+        "cpu_usage": 44.91,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-039",
+        "timestamp": "2026-01-01T08:38:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.029,
+        "latency_ms": 460,
+        "cpu_usage": 13.48,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-040",
+        "timestamp": "2026-01-01T08:39:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.599,
+        "latency_ms": 1883,
+        "cpu_usage": 90.19,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-041",
+        "timestamp": "2026-01-01T08:40:00+00:00"
+    },
+    {
+        "service": "database-service",
+        "error_rate": 0.188,
+        "latency_ms": 1152,
+        "cpu_usage": 80.21,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-042",
+        "timestamp": "2026-01-01T08:41:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.008,
+        "latency_ms": 281,
+        "cpu_usage": 20.48,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-043",
+        "timestamp": "2026-01-01T08:42:00+00:00"
+    },
+    {
+        "service": "notification-service",
+        "error_rate": 0.551,
+        "latency_ms": 1623,
+        "cpu_usage": 93.61,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-044",
+        "timestamp": "2026-01-01T08:43:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.028,
+        "latency_ms": 564,
+        "cpu_usage": 97.26,
+        "incident_label": 1,
+        "scenario": "cpu_saturation",
+        "event_id": "EVT-045",
+        "timestamp": "2026-01-01T08:44:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.146,
+        "latency_ms": 765,
+        "cpu_usage": 71.58,
+        "incident_label": 1,
+        "scenario": "degraded_performance",
+        "event_id": "EVT-046",
+        "timestamp": "2026-01-01T08:45:00+00:00"
+    },
+    {
+        "service": "user-service",
+        "error_rate": 0.005,
+        "latency_ms": 294,
+        "cpu_usage": 14.84,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-047",
+        "timestamp": "2026-01-01T08:46:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.428,
+        "latency_ms": 1817,
+        "cpu_usage": 97.41,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-048",
+        "timestamp": "2026-01-01T08:47:00+00:00"
+    },
+    {
+        "service": "auth-service",
+        "error_rate": 0.039,
+        "latency_ms": 140,
+        "cpu_usage": 52.77,
+        "incident_label": 0,
+        "scenario": "normal",
+        "event_id": "EVT-049",
+        "timestamp": "2026-01-01T08:48:00+00:00"
+    },
+    {
+        "service": "payment-api",
+        "error_rate": 0.489,
+        "latency_ms": 2699,
+        "cpu_usage": 95.02,
+        "incident_label": 1,
+        "scenario": "critical_failure",
+        "event_id": "EVT-050",
+        "timestamp": "2026-01-01T08:49:00+00:00"
+    }
+]
