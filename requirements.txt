@@ -4,3 +4,4 @@ numpy>=1.26,<3.0
 pyarrow>=16.0
 jupyter>=1.0
 matplotlib>=3.8
+pyspark==3.5.8
