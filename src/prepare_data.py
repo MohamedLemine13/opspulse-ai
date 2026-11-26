@@ -358,6 +358,7 @@ def run_pipeline(
         engine="pyarrow",
         compression="snappy",
         index=False,
+        coerce_timestamps="us",
     )
 
     # Step 5: Save rejected records

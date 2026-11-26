@@ -43,3 +43,20 @@ reports/data_quality.json
 
 # Notebook checkpoints
 .ipynb_checkpoints/
+
+# Stage 3: Generated large datasets
+data/large/*
+!data/large/.gitkeep
+
+# Spark processing outputs
+data/spark/*
+!data/spark/.gitkeep
+
+# Generated Spark artifacts
+spark-warehouse/
+metastore_db/
+derby.log
+spark-events/
+
+# Generated Spark data-quality report
+reports/spark_quality.json

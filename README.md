@@ -16,9 +16,12 @@ and data processing techniques.
 
 ## Current Stage
 
-Stage 2: Data Engineering Pipeline
+Stage 3: Big Data Processing with Apache Spark
 
-Stage 1 — Rule-Based Incident Detection is completed.
+Completed stages:
+
+- Stage 1 — Rule-Based Incident Detection
+- Stage 2 — Data Engineering Pipeline
 
 ### Features
 
@@ -264,11 +267,220 @@ duplicate handling and pipeline reproducibility.
 Distributed data processing will be introduced
 in the next stage using Apache Spark.
 
+## Stage 3 — Big Data Processing with Apache Spark
+
+This stage extends the data engineering pipeline
+with distributed-capable processing using PySpark.
+
+The pipeline runs locally and introduces Spark
+DataFrames, schema validation, parallel transformations,
+temporal feature engineering and analytical aggregations.
+
+### Technologies
+
+- Apache Spark 3.5.8
+- PySpark
+- Spark SQL
+- OpenJDK 17
+- Apache Parquet
+- Pandas
+- NumPy
+- PyArrow
+- Pytest
+
+### Pipeline Architecture
+
+```text
+Stage 2 Parquet Dataset
+          |
+          v
+   Schema Validation
+          |
+          v
+   Record Validation
+          |
+          v
+   Duplicate Handling
+          |
+          v
+   Feature Engineering
+          |
+    +-----+------+
+    |            |
+    v            v
+ Service       Hourly
+ Statistics    Statistics
+    |            |
+    +-----+------+
+          |
+          v
+ Partitioned Parquet
+```
+
+### Spark Configuration
+
+- Local execution with four worker threads
+- 4 GB driver heap configuration
+- Eight initial shuffle partitions
+- Adaptive Query Execution enabled
+- UTC timestamp processing
+
+### Temporal Feature Engineering
+
+| Feature | Description |
+|---------|-------------|
+| event_date | Date used for storage partitioning |
+| day_of_week | Day of the week |
+| is_weekend | Indicates weekend observations |
+| event_hour | Timestamp truncated to the hour |
+
+### Analytical Aggregations
+
+The pipeline generates:
+
+- Service-level monitoring statistics
+- Hourly monitoring statistics per service
+- Incident counts and incident rates
+- Average CPU and memory utilization
+- Average response latency
+- Observation-level and global error rates
+
+### Data Validation
+
+The pipeline checks the incoming schema,
+numeric ranges, missing values, request consistency
+and incident labels.
+
+All records associated with duplicate event IDs
+are rejected to ensure deterministic behavior.
+
+### Storage Optimization
+
+Processed events are stored in Apache Parquet
+with date-based directory partitioning.
+
+Spark execution plans are inspected to understand:
+
+- Lazy evaluation
+- Predicate pushdown
+- Column pruning
+- Partition pruning
+- Shuffle operations
+- Adaptive Query Execution
+
+### Installation
+
+Install OpenJDK 17 and configure JAVA_HOME.
+
+```bash
+pip install -r requirements.txt
+```
+
+### Verify Spark Configuration
+
+```bash
+python -m src.spark_config
+```
+
+### Run the Spark Pipeline
+
+Generate the Stage 2 dataset first:
+
+```bash
+python -m src.generate_raw_data
+python -m src.prepare_data
+```
+
+Execute the Spark pipeline:
+
+```bash
+python -m src.spark_pipeline
+```
+
+### Generate Benchmark Datasets
+
+```bash
+python -m src.generate_large_data
+```
+
+Three synthetic datasets are generated:
+
+- 10,000 observations
+- 100,000 observations
+- 1,000,000 observations
+
+### Process a Larger Dataset
+
+```bash
+python -m src.spark_pipeline \
+    --input data/large/events_1000000.parquet
+```
+
+### Performance Benchmark
+
+```bash
+python -m src.benchmark
+```
+
+The benchmark compares equivalent Pandas and Spark
+operations using the same Parquet input datasets.
+
+Execution times are measured across repeated runs,
+with Spark startup measured separately.
+
+Output equivalence is verified before performance
+results are accepted.
+
+### Benchmark Results
+
+| Records | Pandas (s) | Spark (s) | Spark Speedup |
+|---------|------------|-----------|---------------|
+| 10,000 | TBD | TBD | TBD |
+| 100,000 | TBD | TBD | TBD |
+| 1,000,000 | TBD | TBD | TBD |
+
+Results must be measured on the local machine.
+
+### Output Files
+
+- `data/spark/events/`
+- `data/spark/service_statistics/`
+- `data/spark/hourly_statistics/`
+- `data/spark/rejected/`
+- `reports/spark_quality.json`
+- `reports/benchmark_results.csv`
+
+### Benchmark Visualization
+
+Open `notebooks/spark_benchmark.ipynb`
+to visualize the execution times and storage sizes.
+
+### Automated Testing
+
+```bash
+python -m pytest tests/ -v
+```
+
+Tests cover schema validation, feature engineering,
+duplicate handling, distributed-style aggregations,
+Parquet output and Pandas/Spark result equivalence.
+
+### Current Limitations
+
+- Spark is executed locally rather than across
+  a multi-machine cluster.
+- All monitoring datasets are synthetic.
+- The larger benchmarking datasets are derived
+  from the original Stage 2 dataset.
+- Memory consumption is not benchmarked.
+- No real-time Kafka integration is implemented.
+- No Machine Learning model has been trained yet.
+
 ## Roadmap
 
 - [x] Rule-based incident detection
 - [x] Data preparation and validation pipeline
-- [ ] Big Data processing with Apache Spark
+- [x] Big Data processing with Apache Spark
 - [ ] Machine Learning-based incident detection
 - [ ] Model evaluation and benchmarking
 - [ ] Deep Learning-based log analysis
