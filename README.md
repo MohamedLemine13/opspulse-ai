@@ -16,12 +16,13 @@ and data processing techniques.
 
 ## Current Stage
 
-Stage 3: Big Data Processing with Apache Spark
+Stage 4: Machine Learning Incident Detection
 
 Completed stages:
 
 - Stage 1 — Rule-Based Incident Detection
 - Stage 2 — Data Engineering Pipeline
+- Stage 3 — Big Data Processing with Apache Spark
 
 ### Features
 
@@ -476,13 +477,209 @@ Parquet output and Pandas/Spark result equivalence.
 - No real-time Kafka integration is implemented.
 - No Machine Learning model has been trained yet.
 
+## Stage 4 — Machine Learning Incident Detection
+
+This stage introduces supervised Machine Learning
+and unsupervised anomaly detection to identify
+incidents from IT infrastructure monitoring data.
+
+### Technologies
+
+- Scikit-learn
+- Pandas
+- NumPy
+- Joblib
+- Matplotlib
+- Pytest
+
+### Models
+
+| Model | Learning Type |
+|-------|---------------|
+| Rule-based detector | Baseline |
+| Logistic Regression | Supervised |
+| Random Forest | Supervised |
+| Isolation Forest | Unsupervised |
+
+### Input Features
+
+- CPU utilization
+- Memory utilization
+- Error rate
+- P95 response latency
+
+The target variable is `incident_label`,
+where 0 represents normal behavior and
+1 represents an incident.
+
+### Dataset Strategy
+
+The original validated Stage 2 dataset is used.
+
+Chronological splitting is performed without shuffling:
+
+| Split | Proportion | Observations |
+|-------|------------|--------------|
+| Training | 70% | 700 |
+| Validation | 15% | 150 |
+| Testing | 15% | 150 |
+
+The resampled Stage 3 benchmarking datasets
+are excluded from model training to reduce
+the risk of evaluation leakage.
+
+### Training Architecture
+
+```text
+Validated Monitoring Data
+           |
+           v
+    Feature Selection
+           |
+           v
+   Chronological Split
+           |
+           v
+     Model Training
+           |
+           v
+   Validation Comparison
+           |
+           v
+     Model Selection
+           |
+           v
+   Held-out Evaluation
+           |
+           v
+  Model and Metadata
+           |
+           v
+        Inference
+```
+
+### Model Training
+
+Generate and prepare the dataset:
+
+```bash
+python -m src.generate_raw_data
+python -m src.prepare_data
+```
+
+Train and evaluate the models:
+
+```bash
+python -m src.ml.train
+```
+
+Model selection is based on validation F1-score.
+
+Only the selected ML candidate and the original
+rule-based baseline are evaluated on the held-out
+test dataset.
+
+### Validation Results
+
+| Model | Precision | Recall | F1-score |
+|-------|-----------|--------|----------|
+| Rule-based | TBD | TBD | TBD |
+| Logistic Regression | TBD | TBD | TBD |
+| Random Forest | TBD | TBD | TBD |
+| Isolation Forest | TBD | TBD | TBD |
+
+### Held-out Test Results
+
+| Model | Precision | Recall | F1-score |
+|-------|-----------|--------|----------|
+| Rule-based | TBD | TBD | TBD |
+| Selected ML Model | TBD | TBD | TBD |
+
+Populate these tables using measured results.
+
+### Model Persistence
+
+The selected Machine Learning model is saved as:
+
+- `models/incident_model.joblib`
+- `models/model_metadata.json`
+
+Metadata contains model information, feature
+definitions, dataset fingerprints, library versions,
+split statistics and evaluation results.
+
+Model artifacts must be regenerated locally.
+
+Only trusted Joblib artifacts should be loaded.
+
+### Incident Inference
+
+```bash
+python -m src.ml.predict \
+    --cpu 98 \
+    --memory 70 \
+    --error-rate 0.03 \
+    --latency 500
+```
+
+The inference component validates incoming features
+and returns a binary incident prediction.
+
+Supervised classifiers additionally provide an
+estimated incident probability.
+
+Isolation Forest provides an anomaly score instead.
+
+### Evaluation Reports
+
+- `reports/ml/dataset_summary.json`
+- `reports/ml/validation_metrics.csv`
+- `reports/ml/test_metrics.csv`
+- `reports/ml/test_predictions.csv`
+
+### Exploratory ML Analysis
+
+Open:
+
+`notebooks/ml_experiments.ipynb`
+
+The notebook contains model comparisons,
+confusion matrices, error analysis and
+model interpretation.
+
+### Automated Testing
+
+```bash
+python -m pytest tests/ -v
+```
+
+The tests cover feature validation,
+chronological splitting, model training,
+evaluation, serialization and inference.
+
+### Current Limitations
+
+- Training data is synthetic.
+- The dataset contains only 1,000 observations.
+- Simulated operational scenarios may be easier
+  to distinguish than real incidents.
+- Chronological splitting does not reproduce
+  realistic production drift.
+- Model hyperparameters are fixed for the
+  initial experiment.
+- Estimated probabilities have not been calibrated.
+- No production model deployment is implemented.
+
+Further model evaluation and optimization
+will be introduced in the next stage.
+
 ## Roadmap
 
 - [x] Rule-based incident detection
 - [x] Data preparation and validation pipeline
 - [x] Big Data processing with Apache Spark
-- [ ] Machine Learning-based incident detection
-- [ ] Model evaluation and benchmarking
+- [x] Machine Learning-based incident detection
+- [ ] Model evaluation and optimization
 - [ ] Deep Learning-based log analysis
 - [ ] Generative AI and RAG troubleshooting
 - [ ] FastAPI integration

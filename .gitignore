@@ -60,3 +60,10 @@ spark-events/
 
 # Generated Spark data-quality report
 reports/spark_quality.json
+
+# Stage 4: Generated ML artifacts
+models/*.joblib
+models/model_metadata.json
+
+# Individual generated predictions
+reports/ml/test_predictions.csv
